@@ -8,7 +8,7 @@ function App() {
   const throttledUpdate = useRef(
     Throttling(() => {
       setThrottleMouseMove((prev) => prev + 1);
-    }, 1000)
+    }, 100)
   ).current;
 
   useEffect(() => {

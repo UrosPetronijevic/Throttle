@@ -3,22 +3,16 @@ export default function Throttling(
   delay: number
 ) {
   let timeout: any = null;
-  let latestArgs: any[] | null = null;
 
-  return (...args: any[]) => {
+  return () => {
     if (!timeout) {
       timeout = true;
 
       setTimeout(() => {
         timeout = false;
 
-        if (latestArgs) {
-          callback(...latestArgs);
-          latestArgs = null;
-        }
+        callback();
       }, delay);
-    } else {
-      latestArgs = args;
     }
   };
 }
